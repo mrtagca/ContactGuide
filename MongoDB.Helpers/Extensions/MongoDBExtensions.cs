@@ -6,19 +6,19 @@ using System.Text;
 
 namespace MongoDB.Helpers.Extensions
 {
-    public static class ServiceCollectionExtensions
+    public static class MongoDBExtensions
     {
-        //public static IServiceCollection AddMongoDbSettings(this IServiceCollection services,
-        //    IConfiguration configuration)
-        //{
-            
-        //    return services.AddSingleton<MongoDbSettings>(options =>
-        //    {
-        //        options.ConnectionString = configuration
-        //            .GetSection(nameof(MongoDbSettings) + ":" + MongoDbSettings.ConnectionStringValue).Value;
-        //        options.Database = configuration
-        //            .GetSection(nameof(MongoDbSettings) + ":" + MongoDbSettings.DatabaseValue).Value;
-        //    });
-        //}
+        public static IServiceCollection AddMongoDbSettings(this IServiceCollection services,
+            IConfiguration configuration)
+        {
+
+            return services.Configure<MongoDbSettings>(options =>
+            {
+                options.ConnectionString = configuration
+                    .GetSection(nameof(MongoDbSettings) + ":" + MongoDbSettings.ConnectionStringValue).Value;
+                options.Database = configuration
+                    .GetSection(nameof(MongoDbSettings) + ":" + MongoDbSettings.DatabaseValue).Value;
+            });
+        }
     }
 }
