@@ -2,12 +2,14 @@
 
 namespace BaseTypes
 {
-    public class DBEntityBase : IDisposable
+    public abstract class DBEntityBase : IDisposable
     {
         public DBEntityBase()
         {
-
+            
         }
+
+        public Guid Id { get; set; }
 
         public void Dispose()
         {
