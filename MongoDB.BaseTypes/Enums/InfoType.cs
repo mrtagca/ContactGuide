@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Types.Enums
+namespace MongoDB.BaseTypes.Enums
 {
     public enum InfoType
     {

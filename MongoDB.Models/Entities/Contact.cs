@@ -1,12 +1,11 @@
-﻿using BaseTypes;
+﻿using MongoDB.BaseTypes.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Types.Enums;
 
-namespace Types.Entities
+namespace MongoDB.Models.Entities
 {
-    public class Contact : UpdatableDBEntity
+    public class Contact 
     {
         public Guid UUId { get; set; }
         public string Name { get; set; }
@@ -17,8 +16,8 @@ namespace Types.Entities
 
     }
 
-    public class ContactInfo {
-
+    public class ContactInfo
+    {
         public InfoType InfoType { get; set; }
         public string InfoValue { get; set; }
     }

@@ -1,12 +1,11 @@
-﻿using BaseTypes;
+﻿using MongoDB.BaseTypes.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Types.Enums;
 
-namespace Types.Entities
+namespace MongoDB.Models.Entities
 {
-    public class Report : UpdatableDBEntity
+    public class Report  
     {
         public Guid UUId { get; set; }
         public DateTime RequestDate { get; set; }
