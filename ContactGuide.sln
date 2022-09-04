@@ -19,11 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDB.Helpers", "MongoDB.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicroService", "MicroService", "{F687FF30-7A4B-497E-BDC8-0376D5589FE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactService", "ContactService\ContactService.csproj", "{255BA7A6-52DA-4129-9854-DB6674BF29E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactService", "ContactService\ContactService.csproj", "{255BA7A6-52DA-4129-9854-DB6674BF29E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportService", "ReportService\ReportService.csproj", "{0EADA82D-DB9A-4300-BBB0-1A0B9F8DD7AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportService", "ReportService\ReportService.csproj", "{0EADA82D-DB9A-4300-BBB0-1A0B9F8DD7AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway", "Gateway\Gateway.csproj", "{53FDE046-3279-42F9-984C-38C97FA919B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway", "Gateway\Gateway.csproj", "{53FDE046-3279-42F9-984C-38C97FA919B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

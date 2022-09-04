@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Gateway.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("api/[controller]/[action]")]
+   
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
