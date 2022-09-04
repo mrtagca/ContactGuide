@@ -1,12 +1,11 @@
-﻿using BaseTypes.Entities;
-using BaseTypes.Enums;
+﻿using BaseTypes.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MongoDB.Models.Entities
+namespace BaseTypes.Entities
 {
-    public class Report : IReport
+    public interface IReport
     {
         public Guid UUId { get; set; }
         public DateTime RequestDate { get; set; }

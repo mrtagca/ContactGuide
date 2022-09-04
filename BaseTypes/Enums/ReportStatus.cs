@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MongoDB.BaseTypes.Enums
+namespace BaseTypes.Enums
 {
     public enum ReportStatus
     {
-        Processing,
-        Completed
+        Processing = 1,
+        Completed = 2
     }
 }

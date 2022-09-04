@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MongoDB.Models.Interfaces;
+using BaseTypes.Entities;
 
 namespace MongoDB.Repositories
 {

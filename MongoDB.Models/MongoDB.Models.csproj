@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MongoDB.BaseTypes\MongoDB.BaseTypes.csproj" />
+    <ProjectReference Include="..\BaseTypes\BaseTypes.csproj" />
   </ItemGroup>
 
 </Project>

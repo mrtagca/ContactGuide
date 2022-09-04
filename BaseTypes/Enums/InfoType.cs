@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MongoDB.BaseTypes.Enums
+namespace BaseTypes.Enums
 {
     public enum InfoType
     {
-        PhoneNumber,
-        Email,
-        Location
+        PhoneNumber = 1,
+        Email = 2,
+        Location = 3
     }
 }
