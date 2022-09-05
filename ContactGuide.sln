@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportService", "ReportServ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway", "Gateway\Gateway.csproj", "{53FDE046-3279-42F9-984C-38C97FA919B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceContracts", "ServiceContracts\ServiceContracts.csproj", "{1CAECF07-3ED3-4CFD-94C9-55E61D5A060B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{53FDE046-3279-42F9-984C-38C97FA919B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53FDE046-3279-42F9-984C-38C97FA919B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53FDE046-3279-42F9-984C-38C97FA919B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CAECF07-3ED3-4CFD-94C9-55E61D5A060B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CAECF07-3ED3-4CFD-94C9-55E61D5A060B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CAECF07-3ED3-4CFD-94C9-55E61D5A060B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CAECF07-3ED3-4CFD-94C9-55E61D5A060B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
