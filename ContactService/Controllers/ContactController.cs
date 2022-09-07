@@ -21,7 +21,7 @@ namespace ContactService.Controllers
 
         public ContactController(IContactDataAccess contactDataAccess)
         {
-          _contactDataAccess = contactDataAccess;
+            _contactDataAccess = contactDataAccess;
         }
 
         [HttpPost]
@@ -74,5 +74,47 @@ namespace ContactService.Controllers
                 };
             }
         }
+
+        [HttpPost]
+        public ResponseBase AddContactInfoByContactId(AddContactInfoByContactIdRequest request)
+        {
+            try
+            {
+
+                Task<Contact> task = _contactDataAccess.GetByIdAsync(request.ContactId);
+                Contact contact = task.Result;
+
+                if (contact.ContactInfos.Any(x => x.InfoType == request.ContactInfo.InfoType && x.InfoValue == request.ContactInfo.InfoValue))
+                {
+                    return new ResponseBase()
+                    {
+                        Success = false,
+                        Error = new Error("Contact info has already been added!")
+                };
+            }
+                else
+            {
+                contact.ContactInfos.Add(request.ContactInfo);
+                Task<Contact> taskUpdate = _contactDataAccess.UpdateAsync(request.ContactId, contact);
+                Contact ct = taskUpdate.Result;
+
+                return new ResponseBase()
+                {
+                    Success = true,
+
+                };
+            }
+
+
+        }
+            catch (Exception ex)
+            {
+                return new ResponseBase()
+        {
+            Success = false,
+                    Error = new Error(ex)
+                };
+    }
+}
     }
 }
