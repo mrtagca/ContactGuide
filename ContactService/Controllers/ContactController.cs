@@ -50,5 +50,29 @@ namespace ContactService.Controllers
                 };
             }
         }
+
+        [HttpPost]
+        public ResponseBase DeleteContactById(DeleteContactByIdRequest request)
+        {
+            try
+            {
+                Task<Contact> task = _contactDataAccess.DeleteAsync(request.Id);
+                Contact ct = task.Result;
+
+                return new ResponseBase()
+                {
+                    Success = true,
+
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseBase()
+                {
+                    Success = false,
+                    Error = new Error(ex)
+                };
+            }
+        }
     }
 }
