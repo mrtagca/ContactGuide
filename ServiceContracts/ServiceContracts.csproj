@@ -4,4 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Response\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BaseTypes\BaseTypes.csproj" />
+    <ProjectReference Include="..\MongoDB.Repositories\MongoDB.Repositories.csproj" />
+  </ItemGroup>
+
 </Project>

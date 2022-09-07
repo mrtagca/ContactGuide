@@ -12,7 +12,6 @@
   <ItemGroup>
     <ProjectReference Include="..\MongoDB.Helpers\MongoDB.Helpers.csproj" />
     <ProjectReference Include="..\MongoDB.Models\MongoDB.Models.csproj" />
-    <ProjectReference Include="..\Repositories\Repositories.csproj" />
   </ItemGroup>
 
 </Project>

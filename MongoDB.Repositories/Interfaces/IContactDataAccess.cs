@@ -8,5 +8,6 @@ namespace MongoDB.Repositories.Interfaces
 
     public interface IContactDataAccess : IMongoRepository<Contact, string>
     {
+        
     }
 }

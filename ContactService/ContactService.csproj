@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MongoDB.Repositories\MongoDB.Repositories.csproj" />
+    <ProjectReference Include="..\ServiceContracts\ServiceContracts.csproj" />
   </ItemGroup>
 
 

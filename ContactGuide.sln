@@ -5,8 +5,6 @@ VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseTypes", "BaseTypes\BaseTypes.csproj", "{50C894C8-9372-44B8-BB33-A6CE99D25874}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{356630B5-BD2A-4335-B4F9-2ECA8CD0B9B8}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{1F406E38-5BF6-4C26-82CE-BF5C2E652229}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDB.Repositories", "MongoDB.Repositories\MongoDB.Repositories.csproj", "{EC3833E4-7B06-4575-8531-289743FE243A}"
@@ -23,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportService", "ReportServ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway", "Gateway\Gateway.csproj", "{53FDE046-3279-42F9-984C-38C97FA919B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceContracts", "ServiceContracts\ServiceContracts.csproj", "{1CAECF07-3ED3-4CFD-94C9-55E61D5A060B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceContracts", "ServiceContracts\ServiceContracts.csproj", "{1CAECF07-3ED3-4CFD-94C9-55E61D5A060B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +33,6 @@ Global
 		{50C894C8-9372-44B8-BB33-A6CE99D25874}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50C894C8-9372-44B8-BB33-A6CE99D25874}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50C894C8-9372-44B8-BB33-A6CE99D25874}.Release|Any CPU.Build.0 = Release|Any CPU
-		{356630B5-BD2A-4335-B4F9-2ECA8CD0B9B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{356630B5-BD2A-4335-B4F9-2ECA8CD0B9B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{356630B5-BD2A-4335-B4F9-2ECA8CD0B9B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{356630B5-BD2A-4335-B4F9-2ECA8CD0B9B8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EC3833E4-7B06-4575-8531-289743FE243A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EC3833E4-7B06-4575-8531-289743FE243A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC3833E4-7B06-4575-8531-289743FE243A}.Release|Any CPU.ActiveCfg = Release|Any CPU

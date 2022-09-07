@@ -19,7 +19,9 @@ namespace MongoDB.Models
         [BsonRepresentation(BsonType.DateTime)]
         [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
         [BsonElement(Order = 101)]
+        [JsonIgnore]
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+        [JsonIgnore]
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }
 }

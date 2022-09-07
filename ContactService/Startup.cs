@@ -10,7 +10,7 @@ using Microsoft.OpenApi.Models;
 using MongoDB.Helpers.Extensions;
 using MongoDB.Repositories.Interfaces;
 using MongoDB.Repositories.Services;
-using Repositories;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +29,7 @@ namespace ContactService
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        { 
+        {
 
             services.AddControllersWithViews().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddControllers();
@@ -45,6 +45,7 @@ namespace ContactService
 
             services.AddMongoDbSettings(Configuration);
             services.AddSingleton<IContactDataAccess, ContactRepoService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,7 +69,8 @@ namespace ContactService
             });
 
             app.UseSwagger();
-            app.UseSwaggerUI(options => {
+            app.UseSwaggerUI(options =>
+            {
                 options.DocumentTitle = "Contact API Documentation";
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Contact API");
             });
