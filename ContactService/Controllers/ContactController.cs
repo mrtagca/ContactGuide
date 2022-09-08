@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ContactService.Controllers
 {
@@ -186,12 +187,19 @@ namespace ContactService.Controllers
         {
             try
             {
-                List<Contact> responseList = _contactDataAccess.Get().OrderBy(x => x.Name).ToList();
+                List<Contact> responseList = _contactDataAccess.Get().OrderBy(x => x.Name).OrderBy(x=>x.Surname).Select(x => new Contact
+                {
+                    UUId = x.UUId,
+                    Name = x.Name,
+                    Surname = x.Surname,
+                    Corporation = x.Corporation
+
+                }).ToList();
 
                 return new ResponseList<Contact>()
                 {
-                    Success=true,
-                    Message="Contacts listed",
+                    Success = true,
+                    Message = "Contacts listed",
                     Data = responseList
                 };
             }
@@ -200,7 +208,7 @@ namespace ContactService.Controllers
                 return new ResponseList<Contact>()
                 {
                     Success = false,
-                    Message= "contacts not listed!",
+                    Message = "contacts not listed!",
                     Error = new Error(ex)
 
                 };
