@@ -106,7 +106,7 @@ namespace ContactService.Controllers
                     return new ResponseBase()
                     {
                         Success = true,
-                        Message= "The contact information has been successfully added."
+                        Message = "The contact information has been successfully added."
 
                     };
                 }
@@ -118,7 +118,7 @@ namespace ContactService.Controllers
                 return new ResponseBase()
                 {
                     Success = false,
-                    Message= "Could not add contact!",
+                    Message = "Could not add contact!",
                     Error = new Error(ex)
                 };
             }
@@ -146,7 +146,7 @@ namespace ContactService.Controllers
                         return new ResponseBase()
                         {
                             Success = true,
-                            Message= "Contact information deleted successfully."
+                            Message = "Contact information deleted successfully."
 
                         };
                     }
@@ -155,7 +155,7 @@ namespace ContactService.Controllers
                         return new ResponseBase()
                         {
                             Success = false,
-                            Message= "Failed to delete contact information!",
+                            Message = "Failed to delete contact information!",
                             Error = new Error("Contact info couldn't be deleted. Contact info not found!")
                         };
                     }
@@ -177,6 +177,32 @@ namespace ContactService.Controllers
                     Success = false,
                     Message = "Failed to delete contact information!",
                     Error = new Error(ex)
+                };
+            }
+        }
+
+        [HttpGet]
+        public ResponseList<Contact> GetContacts()
+        {
+            try
+            {
+                List<Contact> responseList = _contactDataAccess.Get().OrderBy(x => x.Name).ToList();
+
+                return new ResponseList<Contact>()
+                {
+                    Success=true,
+                    Message="Contacts listed",
+                    Data = responseList
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseList<Contact>()
+                {
+                    Success = false,
+                    Message= "contacts not listed!",
+                    Error = new Error(ex)
+
                 };
             }
         }
