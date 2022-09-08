@@ -54,15 +54,7 @@ namespace ReportService.Controllers
                 contactList.AddRange(contacts.Where(x => x.ContactInfos == x.ContactInfos.Where(x => x.InfoValue == loc)));
             }
 
-
-
-
-            //.Find(x => x.ContactInfos.Where(x => x.InfoType == InfoType.Location));
-
-
-
-
-
+            
 
 
             foreach (var ct in contacts)
@@ -70,6 +62,8 @@ namespace ReportService.Controllers
                 locationList = ct.ContactInfos.Where(x => x.InfoType == InfoType.Location).Select(x => x.InfoValue).ToList();
                 break;
             }
+
+            //mongo db bozuldu. windows service start olmuyor
 
             return new ResponseData<LocationReport>();
         }
