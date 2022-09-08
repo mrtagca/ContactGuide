@@ -1,5 +1,6 @@
 ﻿using BaseTypes.Enums;
 using BaseTypes.Response;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using MongoDB.Models.Entities;
@@ -38,6 +39,7 @@ namespace ContactService.Controllers
                 return new ResponseBase()
                 {
                     Success = true,
+                    Message = "Contact added successfully.",
                     RecordId = ct.Id
                 };
             }
@@ -46,6 +48,7 @@ namespace ContactService.Controllers
                 return new ResponseBase()
                 {
                     Success = false,
+                    Message = "Could not add contact!",
                     Error = new Error(ex)
                 };
             }
@@ -62,6 +65,7 @@ namespace ContactService.Controllers
                 return new ResponseBase()
                 {
                     Success = true,
+                    Message = "Contact has been deleted successfully."
 
                 };
             }
@@ -70,6 +74,7 @@ namespace ContactService.Controllers
                 return new ResponseBase()
                 {
                     Success = false,
+                    Message = "Failed to delete contact!",
                     Error = new Error(ex)
                 };
             }
@@ -90,31 +95,90 @@ namespace ContactService.Controllers
                     {
                         Success = false,
                         Error = new Error("Contact info has already been added!")
-                };
-            }
+                    };
+                }
                 else
-            {
-                contact.ContactInfos.Add(request.ContactInfo);
-                Task<Contact> taskUpdate = _contactDataAccess.UpdateAsync(request.ContactId, contact);
-                Contact ct = taskUpdate.Result;
-
-                return new ResponseBase()
                 {
-                    Success = true,
+                    contact.ContactInfos.Add(request.ContactInfo);
+                    Task<Contact> taskUpdate = _contactDataAccess.UpdateAsync(request.ContactId, contact);
+                    Contact ct = taskUpdate.Result;
 
-                };
+                    return new ResponseBase()
+                    {
+                        Success = true,
+                        Message= "The contact information has been successfully added."
+
+                    };
+                }
+
+
             }
-
-
-        }
             catch (Exception ex)
             {
                 return new ResponseBase()
-        {
-            Success = false,
+                {
+                    Success = false,
+                    Message= "Could not add contact!",
                     Error = new Error(ex)
                 };
-    }
-}
+            }
+        }
+
+        [HttpPost]
+        public ResponseBase DeleteContactInfo(DeleteContactInfo request)
+        {
+            try
+            {
+
+                Task<Contact> task = _contactDataAccess.GetAsync(x => x.Id == request.ContactId);
+                Contact contact = task.Result;
+
+                if (contact != null)
+                {
+                    ContactInfo contactInfo = contact.ContactInfos.FirstOrDefault(x => x.ContactInfoId == request.ContactInfoId);
+
+                    if (contactInfo != null)
+                    {
+                        contact.ContactInfos.Remove(contactInfo);
+                        Task<Contact> taskUpdate = _contactDataAccess.UpdateAsync(request.ContactId, contact);
+                        Contact ct = taskUpdate.Result;
+
+                        return new ResponseBase()
+                        {
+                            Success = true,
+                            Message= "Contact information deleted successfully."
+
+                        };
+                    }
+                    else
+                    {
+                        return new ResponseBase()
+                        {
+                            Success = false,
+                            Message= "Failed to delete contact information!",
+                            Error = new Error("Contact info couldn't be deleted. Contact info not found!")
+                        };
+                    }
+                }
+                else
+                {
+                    return new ResponseBase()
+                    {
+                        Success = false,
+                        Message = "Failed to delete contact information!",
+                        Error = new Error("Contact not found!")
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseBase()
+                {
+                    Success = false,
+                    Message = "Failed to delete contact information!",
+                    Error = new Error(ex)
+                };
+            }
+        }
     }
 }
