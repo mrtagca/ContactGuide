@@ -196,12 +196,64 @@ namespace ContactService.Controllers
 
                 }).ToList();
 
+                if (responseList!=null)
+                {
+                    return new ResponseList<Contact>()
+                    {
+                        Success = true,
+                        Message = "Contacts listed",
+                        Data = responseList
+                    };
+                }
+                else
+                {
+                    return new ResponseList<Contact>()
+                    {
+                        Success = true,
+                        Message = "Doesn't have any contact.",
+                        Data = responseList
+                    };
+                }
+
+              
+            }
+            catch (Exception ex)
+            {
                 return new ResponseList<Contact>()
                 {
-                    Success = true,
-                    Message = "Contacts listed",
-                    Data = responseList
+                    Success = false,
+                    Message = "contacts not listed!",
+                    Error = new Error(ex)
+
                 };
+            }
+        }
+
+        [HttpGet]
+        public ResponseList<Contact> GetContactsWithDetails()
+        {
+            try
+            {
+                List<Contact> responseList = _contactDataAccess.Get().OrderBy(x => x.Name).OrderBy(x => x.Surname).ToList();
+
+                if (responseList != null)
+                {
+                    return new ResponseList<Contact>()
+                    {
+                        Success = true,
+                        Message = "Contacts listed",
+                        Data = responseList
+                    };
+                }
+                else
+                {
+                    return new ResponseList<Contact>()
+                    {
+                        Success = true,
+                        Message = "Doesn't have any contact.",
+                        Data = responseList
+                    };
+                }
             }
             catch (Exception ex)
             {
