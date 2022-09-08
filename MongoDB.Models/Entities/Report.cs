@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MongoDB.Models.Entities
 {
-    public class Report : IReport
+    public class Report : MongoDbEntity, IReport
     {
         public Guid UUId { get; set; }
         public DateTime RequestDate { get; set; }

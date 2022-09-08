@@ -8,5 +8,11 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BaseTypes\BaseTypes.csproj" />
+    <ProjectReference Include="..\MongoDB.Models\MongoDB.Models.csproj" />
+    <ProjectReference Include="..\MongoDB.Repositories\MongoDB.Repositories.csproj" />
+  </ItemGroup>
+
 
 </Project>

@@ -8,6 +8,7 @@ using System.Text.Json.Serialization;
 
 namespace MongoDB.Models
 {
+
     public class MongoDbEntity : IEntity<string>
     {
         [BsonRepresentation(BsonType.ObjectId)]

@@ -7,6 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MongoDB.Helpers.Extensions;
+using MongoDB.Repositories.Interfaces;
+using MongoDB.Repositories.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +40,10 @@ namespace ReportService
                     Description = "Report API",
                 });
             });
+
+            services.AddMongoDbSettings(Configuration);
+            services.AddSingleton<IContactDataAccess, ContactRepoService>();
+            services.AddSingleton<IReportDataAccess, ReportRepoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
